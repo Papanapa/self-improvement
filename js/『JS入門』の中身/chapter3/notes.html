@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS勉強 | chapter 3　基本データを操作する - 組み込みオブジェクト -</title>
+</head>
+<body>
+  <h1>chapter 3　基本データを操作する - 組み込みオブジェクト -</h1>
+  <h2>3.2 基本データを扱うためのオブジェクト</h2>
+  <h3>3.2.1 文字列を操作する - Stringオブジェクト - </h3>
+  <h4>正規表現　match(reg)</h4>
+  <p>
+    合致した部分文字列を取得<br>
+    ▼コード<br>
+    const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';<br>
+    const regex = /[A-Z]/g;<br>
+    const found = paragraph.match(regex);<br>
+    console.log(found);<br>
+    // expected output: Array ["T", "I"]<br>
+    <br>
+    ※単純に正規表現に合致する文字列かのTRUEorFALSEが欲しい場合は、RegExp.prototype.test()を使用してください。
+  </p>
+  <h4>その他</h4>
+  <p>
+    ▼コード<br>
+    var str2 = 'Wingsプロジェクト';<br>
+    var str4 = '   wings   ';<br>
+    <br>
+    console.log(str2.concat(' 有限会社'));<br>
+    console.log(str2.repeat(2));<br>
+    console.log(str4.trim());<br>
+    console.log(str2.length);
+  </p>
+  <h3>3.2.2 Numberオブジェクト</h3>
+  <p>Webでは使わなさそうなのでスキップ</p>
+  <h3>3.2.4 Mathオブジェクト</h3>
+  <p>Webでは使わなさそうなのでスキップ</p>
+  <h2>3.3 値の集合を管理 - Array/Map/Setオブジェクト - </h2>
+  <h3>3.3.1 Array</h3>
+  <h4>解説は残さないが、使いそうなメンバー</h4>
+  <p>
+    concat <br>
+    slice <br>
+    splice <br>
+    pop <br>
+    <b>push</b><br>
+  </p>
+  <h4>map メソッド</h4>
+  <b>配列を指定されたルールで加工する</b>
+  <p>
+    まず前提として... <br>
+    ary.foreach()やary.map()に対してコールバック関数を呼び出した場合（例：data.foreach((第一, 第二, 第三)=>{});）<br>
+    第一~第三引数は以下のようになる<br>
+    ・第一引数➡要素の値<br>
+    ・第二引数➡インデックス番号<br>
+    ・第三引数➡元の配列<br>
+    <br>
+    ▼コード<br>
+    var data = [2, 3, 4, 5];<br>
+    var result = data.map(function(value, index, array) {<br>
+      return value * value;<br>
+    });<br>
+    <br>
+    console.log(result);<br>
+    <br>
+    ▼つまり以下も同じ意味
+    var data = [2, 3, 4, 5];<br>
+    var result = data.map(function(value, index, array) {<br>
+      return array[index] * array[index];<br>
+    });<br>
+    <br>
+    console.log(result);
+  </p>
+  <h4>some メソッド</h4>
+  <b>配列に条件に合致した要素が一つでも存在するか確認</b>
+  <p>
+    ▼コード<br>
+    var data = [4, 9, 16, 25];<br>
+    var result = data.some(function(value, index, array) {<br>
+      return value % 3 === 0;<br>
+    });<br>
+    <br>
+    if (result) {<br>
+      console.log('3の倍数が見つかりました。');<br>
+    } else {<br>
+      console.log('3の倍数は見つかりませんでした。');<br>
+    }
+  </p>
+</body>
+</html>
