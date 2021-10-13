@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS勉強 | chapter 3　基本データを操作する - 組み込みオブジェクト -</title>
+</head>
+<body>
+  <h1>chapter 3　基本データを操作する - 組み込みオブジェクト -</h1>
+  <h2>3.2 基本データを扱うためのオブジェクト</h2>
+  <h3>3.2.1 文字列を操作する - Stringオブジェクト - </h3>
+  <h4>正規表現　match(reg)</h4>
+  <p>
+    合致した部分文字列を取得<br>
+    ▼コード<br>
+    const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';<br>
+    const regex = /[A-Z]/g;<br>
+    const found = paragraph.match(regex);<br>
+    console.log(found);<br>
+    // expected output: Array ["T", "I"]<br>
+    <br>
+    ※単純に正規表現に合致する文字列かのTRUEorFALSEが欲しい場合は、RegExp.prototype.test()を使用してください。
+  </p>
+  <h4>その他</h4>
+  <p>
+    ▼コード<br>
+    var str2 = 'Wingsプロジェクト';<br>
+    var str4 = '   wings   ';<br>
+    <br>
+    console.log(str2.concat(' 有限会社'));<br>
+    console.log(str2.repeat(2));<br>
+    console.log(str4.trim());<br>
+    console.log(str2.length);
+  </p>
+  <h3>3.2.2 Numberオブジェクト</h3>
+  <p>Webでは使わなさそうなのでスキップ</p>
+  <h3>3.2.4 Mathオブジェクト</h3>
+  <p>Webでは使わなさそうなのでスキップ</p>
+  <h2>3.3 値の集合を管理 - Array/Map/Setオブジェクト - </h2>
+  <h3>3.3.1 Array</h3>
+  <h4>解説は残さないが、使いそうなメンバー</h4>
+  <p>
+    concat <br>
+    slice <br>
+    splice <br>
+    pop <br>
+    <b>push</b><br>
+  </p>
+  <h4>map メソッド</h4>
+  <b>配列を指定されたルールで加工する</b>
+  <p>
+    まず前提として... <br>
+    ary.foreach()やary.map()に対してコールバック関数を呼び出した場合（例：data.foreach((第一, 第二, 第三)=>{});）<br>
+    第一~第三引数は以下のようになる<br>
+    ・第一引数➡要素の値<br>
+    ・第二引数➡インデックス番号<br>
+    ・第三引数➡元の配列<br>
+    <br>
+    ▼コード<br>
+    var data = [2, 3, 4, 5];<br>
+    var result = data.map(function(value, index, array) {<br>
+      return value * value;<br>
+    });<br>
+    <br>
+    console.log(result);<br>
+    <br>
+    ▼つまり以下も同じ意味
+    var data = [2, 3, 4, 5];<br>
+    var result = data.map(function(value, index, array) {<br>
+      return array[index] * array[index];<br>
+    });<br>
+    <br>
+    console.log(result);
+  </p>
+  <h4>some メソッド</h4>
+  <b>配列に条件に合致した要素が一つでも存在するか確認</b>
+  <p>
+    ▼コード<br>
+    var data = [4, 9, 16, 25];<br>
+    var result = data.some(function(value, index, array) {<br>
+      return value % 3 === 0;<br>
+    });<br>
+    <br>
+    if (result) {<br>
+      console.log('3の倍数が見つかりました。');<br>
+    } else {<br>
+      console.log('3の倍数は見つかりませんでした。');<br>
+    }
+  </p>
+  <h4>filterメソッド</h4>
+  <b>配列の内容を特定の条件で絞り込む</b>
+  <p>
+    ▼コード<br>
+    var data = [4, 9, 16, 25];<br>
+    var result = data.filter(function(value, index, array) {<br>
+        return value % 2 === 1;<br>
+      });<br>
+      <br>
+      console.log(result);
+  </p>
+  <h3>3.3.2 連想配列を操作する - Mapオブジェクト - </h3>
+  <b>連想配列オブジェクト</b>
+  <p>
+    ▼動作がわかるコード
+    let m = new Map();<br>
+    m.set('dog', 'ワンワン');<br>
+    m.set('cat', 'ニャー');<br>
+    m.set('mouse', 'チュー');<br>
+    <br>
+    //let m = new Map([['dog', 'ワンワン'],['cat', 'ニャー'],['mouse', 'チュー']]);<br>
+    <br>
+    console.log(m.size);<br>
+    console.log(m.get('dog'));<br>
+    console.log(m.has('cat'));<br>
+    <br>
+    for (let key of m.keys()) {<br>
+      console.log(key);<br>
+    }<br>
+    <br>
+    for(let value of m.values()) {<br>
+      console.log(value);<br>
+    }<br>
+    <br>
+    for (let [key, value] of m) {<br>
+      console.log(value);<br>
+    }<br>
+    <br>
+    m.delete('dog');<br>
+    console.log(m.size);<br>
+    <br>
+    m.clear();<br>
+    console.log(m.size);
+  </p>
+  <p>
+    個人的に思うオブジェクトリテラルより便利な点<br>
+    →sizeでサイズがわかる。for文回してカウントとかしなくてよい
+  </p>
+  <h3>3.3.3 重複しない値の集合を操作する - Setオブジェクト - p.143</h3>
+  <p>
+    これに関しては特別覚えることは「.add()したとき重複があればaddされないってこと」だけかと。<br>
+    <br>
+    ▼動作がわかるコード<br>
+    let s = new Set(); <br>
+    s.add(10);<br>
+    s.add(5);<br>
+    s.add(100);<br>
+    s.add(50);<br>
+    s.add(5);<br>
+    <br>
+    //let s = new Set([10, 5, 100, 50, 5]); <br>
+    <br>
+    console.log(s.has(100));<br>
+    console.log(s.size);<br>
+    <br>
+    for (let val of s.values()) {<br>
+      console.log(val);<br>
+    }<br>
+    <br>
+    for (let val of s) {<br>
+      console.log(val);<br>
+    }<br>
+    <br>
+    s.delete(100);<br>
+    console.log(s.size);<br>
+    <br>
+    s.clear();<br>
+    console.log(s.size);
+  </p>
+  <h2>3.4 日付/時刻データを操作する - Dateオブジェクト - </h2>
+  <h3>3.4.1 Dateオブジェクトを生成する</h3>
+  <p>
+    一度= new Date();すれば、値取り出しとか加工がめっちゃ便利。<br>
+    <br>
+    ▼動作がわかるコード<br>
+    var dat = new Date(2016, 11, 25, 11, 37, 15, 999);<br>
+    /*一度dateを設定したら、以下のように様々な形で値を取り出せる*/<br>
+    <br>
+    console.log(dat);<br>
+    console.log(dat.getFullYear());<br>
+    console.log(dat.getMonth());<br>
+    console.log(dat.getDate());<br>
+    console.log(dat.getDay());<br>
+    console.log(dat.getHours());<br>
+    console.log(dat.getMinutes());<br>
+    console.log(dat.getSeconds());<br>
+    console.log(dat.getMilliseconds());<br>
+    console.log(dat.getTime());<br>
+    console.log(dat.getTimezoneOffset());<br>
+    <br>
+    console.log(dat.getUTCFullYear());<br>
+    console.log(dat.getUTCMonth());<br>
+    console.log(dat.getUTCDate());<br>
+    console.log(dat.getUTCDay());<br>
+    console.log(dat.getUTCHours());<br>
+    console.log(dat.getUTCMinutes());<br>
+    console.log(dat.getUTCSeconds());<br>
+    console.log(dat.getUTCMilliseconds());<br>
+    <br>
+    var dat2 = new Date();<br>
+    dat2.setFullYear(2017);<br>
+    dat2.setMonth(7);<br>
+    dat2.setDate(5);<br>
+    dat2.setHours(11);<br>
+    dat2.setMinutes(37);<br>
+    dat2.setSeconds(15);<br>
+    dat2.setMilliseconds(513);<br>
+    <br>
+    console.log(dat2.toLocaleString());<br>
+    console.log(dat2.toUTCString());<br>
+    console.log(dat2.toDateString());<br>
+    console.log(dat2.toTimeString());<br>
+    console.log(dat2.toLocaleDateString());<br>
+    console.log(dat2.toLocaleTimeString());<br>
+    console.log(dat2.toJSON());<br>
+    <br>
+    console.log(Date.parse('2016/11/05'));<br>
+    console.log(Date.UTC(2016, 11, 5));<br>
+    console.log(Date.now());
+  </p>
+  <h3>3.4.2 日付/時刻値を加算/減算する</h3>
+  <p>
+    ▼動作がわかるコード<br>
+    var dat = new Date(2017, 4, 15, 11, 40);<br>
+    console.log(dat.toLocaleString());<br>
+    dat.setMonth(dat.getMonth() + 3);<br>
+    console.log(dat.toLocaleString());<br>
+    dat.setDate(dat.getDate() - 20);//勝手に前の月にいってくれる！<br>
+    console.log(dat.toLocaleString());<br>
+  </p>
+  <h3>3.4.3 日付/時刻の差分を求める</h3>
+  <b>↓3行目丸覚えしましょう！</b>
+  <p>
+    ▼動作がわかるコード<br>
+    var dat1 = new Date(2017, 4, 15);<br>
+    var dat2 = new Date(2017, 5, 20);<br>
+    var diff = (dat2.getTime() - dat1.getTime()) / (1000 * 60 * 60 * 24);<br>
+    console.log(diff + '日の差があります。');<br>
+  </p>
+  <h3>本に書いていなかったこと 現在時刻を取得する方法</h3>
+  引数を空にしてインスタンス生成。
+  例）var now = new Date();
+</body>
+</html>
