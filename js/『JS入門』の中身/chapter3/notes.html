@@ -238,7 +238,116 @@
     console.log(diff + '日の差があります。');<br>
   </p>
   <h3>本に書いていなかったこと 現在時刻を取得する方法</h3>
-  引数を空にしてインスタンス生成。
-  例）var now = new Date();
+  <p>
+    引数を空にしてインスタンス生成。
+    例）var now = new Date();
+  </p>
+  <h2>3.5 正規表現で文字を自在に操作する - RegExpオブジェクト - </h2>
+  <h3>3.5.2 RegExpオブジェクトを生成する方法</h3>
+  <p>
+    RegExpオブジェクトを生成する方法は2つある。<br>
+    ・RegExpオブジェクトのコンストラクターを経由する<br>
+    ・正規表現リテラルを利用する<br>
+    この二つは書き方にも違いがある<br>
+    ・コンストラクターを経由する→「\」を\でエスケープする<br>
+    ・正規表現リテラルを利用する→「/」を\でエスケープする<br>
+    例）<br>
+    前者：var p = new RegExp('http(s)?://([\\w-]+\\.)+[\\w-]+(\/[\w- .\/?%&=]*)?')<br>
+    後者：var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br>
+    ※エディターの検索機能で判断されるのは後者っぽい<br>
+  </p>
+  <h3>3.5.3 正規表現による検索の基本</h3>
+  <p>
+    ▼動作がわかるコード<br>
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br>
+    //var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/i;<br>
+    //var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/g;<br>
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br>
+    str += 'サンプル紹介サイトHTTP://www.web-deli.com/もよろしく！';<br>
+    var result = str.match(p);<br>
+    for (var i = 0, len = result.length; i < len; i++) {<br>
+      console.log(result[i]);<br>
+    }
+  </p>
+  <h3>3.5.4 正規表現のオプションでマッチング時の挙動を制御する</h3>
+  <p>
+    わかったこと<br>
+    ・gオプションをつけないことはない<br>
+    ・iオプションは大文字小文字えお区別するかしないかだけ
+    ・mオプションをつけると、^○○の判断が/n後毎回行われるようになる
+    ・uオプションをつけるとサロゲートペアを気にせず済むようになる
+  </p>
+  <h3>3.5.5</h3>
+  <p>今のところexceを使わなければいいかなって感じなのでスキップ</p>
+  <h3>3.5.6 マッチングの成否を検証する test()</h3>
+  <p>
+    ▼動作がわかるコード<br>
+    var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi;<br>
+    var str1 = 'サポートサイトはhttp://www.wings.msn.to/です。';<br>
+    var str2 = 'サポートサイト「サーバサイド技術の学び舎」をよろしく！';<br>
+    console.log(p.test(str1));<br>
+    console.log(p.test(str2));
+  </p>
+  <h3>3.5.7 正規表現で文字列を置き換える</h3>
+  <p>
+    ▼動作がわかるコード<br>
+    var p = /(http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?)/gi;<br>
+    var str = 'サポートサイトはhttp://www.wings.msn.to/です。';<br>
+    document.write(str.replace(p, '&lt;a href="$1"&gt;$1&lt;/a&gt;'));<br>
+    <br>
+    $1~$9に第一引数のサブマッチ文字列を取り出すことも可能。（単純に第二引数に値を入れてもよし）
+  </p>
+  <h3>3.5.8 正規表現で文字列を分割する</h3>
+  <p>
+    ▼動作がわかるコード<br>
+    var p = /[\/\.\-]/gi;<br>
+    console.log('2016/12/04'.split(p));<br>
+    console.log('2016-12-04'.split(p));<br>
+    console.log('2016.12.04'.split(p));
+  </p>
+  <b>※replace/splitは条件文は正規表現でなくていい（固定文字列で置換/分割される）</b>
+  <h2>Objectオブジェクト</h2>
+  <p>
+    この章ではobjectオブジェクトのオブジェクト指向構文に関する解説を除いているため「不変オブジェクト」くらいしか目新しいものがなかった
+  </p>
+  <h3>不変オブジェクトを定義する</h3>
+  <p>
+    <table border="1">
+      <tbody>
+        <tr>
+          <th>preventExtensions</th>
+          <th>seal</th>
+          <th>freeze</th>
+        </tr>
+        <tr>
+          <td>プロパティの追加ができない</td>
+          <td>プロパティの追加と削除ができない<br>既存の変更はできる</td>
+          <td>読み取り専用</td>
+        </tr>
+      </tbody>
+    </table>
+    ▼動作がわかるコード<br>
+    'use strict';<br>
+    var pet = { type: 'スノーホワイトハムスター', name: 'キラ' };<br>
+    /*一つずつコメントアウトを外して動作確認*/<br>
+    //Object.preventExtensions(pet);<br>
+    //Object.seal(pet); <br>
+    //Object.freeze(pet);<br>
+    pet.name = '山田きら';<br>
+    delete pet.type;<br>
+    pet.weight = 42;<br>
+    <br>
+    console.log(pet);
+  </p>
+  <h2>3.7 Globalオブジェクト</h2>
+  <h3>3.7.2 クエリ情報をエスケープ処理する - encodeURI(Component) - </h3>
+  <p>URI全体を入れて変換するときはencodeURIComponentではなくencodeURIを使用</p>
+  <p>
+    ▼動作がわかるコード<br>
+    var str = '関端陽人';<br>
+    console.log(encodeURI(str));<br>
+    console.log(encodeURIComponent(str));<br>
+    console.log(decodeURI('%E9%96%A2%E7%AB%AF%E9%99%BD%E4%BA%BA'));
+    </p>
 </body>
 </html>
