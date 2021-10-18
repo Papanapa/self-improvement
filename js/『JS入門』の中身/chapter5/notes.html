@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS勉強 | chapter 5　オブジェクト指向</title>
+</head>
+<body>
+  <h1>chapter 5　オブジェクト指向</h1>
+  <h2>5.1 JavaScriptにおけるオブジェクト指向の特徴</h2>
+  <p>
+    ■クラシックなやり方<br>
+    「クラス」は用意されていないので、「プロトタイプ」を使う。<br>
+    ▼宣言の仕方がわかるコード<br>
+    var Member = function(firstName, lastName) {<br>
+      this.firstName = firstName;<br>
+      this.lastName = lastName;<br>
+      this.getName = function() {<br>
+        return this.lastName + ' ' + this.firstName;<br>
+      }<br>
+    };<br>
+    <br>
+    var mem = new Member('祥寛', '山田');<br>
+    console.log(mem.getName());<br>
+    <br>
+    thisキーワードはこの場合「生成したインスタンスの」という意味。<br>
+    ※thisが何を指すのか場面ごとに表した表が本の中にあるよ（229ページ）
+  </p>
+  <h2>5.2 プロトタイプ</h2>
+  <p>
+    232~234ページを読めば、「クラスベースのオブジェクト」と「プロトタイプベースのオブジェクト」に違いがわかる<br>
+    ■宣言の仕方<br>
+    ▼宣言の仕方がわかるコード<br>
+    var Member = function(firstName, lastName){<br>
+      this.firstName = firstName;<br>
+      this.lastName = lastName;<br>
+    };<br>
+    <br>
+    Member.prototype.getName = function() {<br>
+      return this.lastName + ' ' + this.firstName;<br>
+    };<br>
+    <br>
+    var mem = new Member('祥寛', '山田');<br>
+    console.log(mem.getName());
+  </p>
+  <h2>5.3 スーパークラス・サブクラス - プロトタイプチェーン -</h2>
+  <h3>5.3.1 プロトタイプチェーンの基礎</h3>
+  <p>
+    ▼動作がわかるコード<br>
+    var Animal = function() {};<br>
+    <br>
+    Animal.prototype = { //スーパークラスの宣言<br>
+      walk : function() {<br>
+        console.log('トコトコ...');<br>
+      }<br>
+    };<br>
+    <br>
+    var Dog = function() { //これの意味はテキストで確認（246ページ）<br>
+      Animal.call(this);<br>
+    };<br>
+    Dog.prototype = new Animal(); //ここでスーパークラスを継承！<br>
+    Dog.prototype.bark = function() {<br>
+      console.log('ワンワン！ ');<br>
+    }<br>
+    <br>
+    var d = new Dog();<br>
+    d.walk();<br>
+    d.bark();<br>
+    <br>
+    ※tokotkoは動物みんなが行う。barkは犬だけが行う。
+  </p>
+  <h3>5.3.3 オブジェクトの型を判定する（便利機能集）</h3>
+  <p>テキストを確認ください。（248ページ）</p>
+  <h2>5.4 本格的な開発に備えるために</h2>
+  <p>スキップ</p>
+  <h2>5.5 ES20154のオブジェクト指向構文</h2>
+  <p>
+    C++とめっちゃ似てるね<br>
+    ▼でてきたやつら<br>
+    ・class命令<br>
+    ・extendsで継承<br>
+
+    ▼できないこと
+    ・private/public修飾子
+  </p>
+  <h3>次5.5.4 イテレーターから</h3>
+</body>
+</html>
