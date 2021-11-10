@@ -10,14 +10,86 @@
   <h1>chapter 6　DOM</h1>
   <h2>6.2 クライアントサイドJavaScriptの前提知識</h2>
   <h3>6.2.1 要素ノードを取得する</h3>
+  <h4>getElementtByなんちゃら系</h4>
   <p>
     getElementtById <br>
     getElementsByTagName <br>
     getElementsByName →name=""情報から探すから、主にフォームで使う<br>
     getElementByClassName <br>
+    →＜！情報＞引数として、空白区切りでクラス名を複数入れれば、どちらのクラスがついていても回収対象に。
     ★本に書いてない情報 <br>
     getElementByClassNameを用いてJSだけが使うクラス名は、HTMLでclass="js-○○"みたいにするといいらしい。
   </p>
+  <h4>querySelector系</h4>
+  <p>
+    CSSの書き方で要素取得できるやつ<br><br>
+    ▼動作がわかるコード（コピーして.htmlで保存してブラウザで実行し、コンソールを確認してみて）<br>
+    &lt;!DOCTYPE html&gt;<br>
+    &lt;html&gt; <br>
+    &lt;head&gt; <br>
+    &lt;meta charset=&quot;UTF-8&quot; /&gt; <br>
+    &lt;title&gt;JavaScript本格入門&lt;/title&gt; <br>
+    &lt;/head&gt; <br>
+    &lt;body&gt; <br>
+    &lt;ul id=&quot;list&quot;&gt; <br>
+    &nbsp;&lt;li&gt;&lt;a href=&quot;http://www.wings.msn.to/&quot; class=&quot;my&quot;&gt; <br>
+    &nbsp;&nbsp;サーバサイド技術の学び舎 - WINGS&lt;/a&gt;&lt;/li&gt; <br>
+    &nbsp;&lt;li&gt;&lt;a href=&quot;http://www.web-deli.com/&quot; class=&quot;my2&quot;&gt; <br>
+    &nbsp;&nbsp;WebDeli&lt;/a&gt;&lt;/li&gt; <br>
+    &nbsp;&lt;li&gt;&lt;a href=&quot;http://www.buildinsider.net/web/jqueryref&quot; class=&quot;external&quot;&gt; <br>
+    &nbsp;&nbsp;jQuery逆引きリファレンス&lt;/a&gt;&lt;/li&gt; <br>
+    &nbsp;&lt;li&gt;&lt;a href=&quot;http://www.buildinsider.net/web/angularjstips&quot; class=&quot;external&quot;&gt; <br>
+    &nbsp;&nbsp;AngularJS TIPS&lt;/a&gt;&lt;/li&gt; <br>
+    &lt;/ul&gt; <br>
+    &lt;script&gt; <br>
+    var list = document.querySelectorAll('#list .external'); <br>
+    for (var i = 0, len = list.length; i &lt; len; i++) { <br>
+    &nbsp;console.log(list.item(i).href); <br>
+    } <br>
+    &lt;/script&gt; <br>
+    &lt;/body&gt; <br>
+    &lt;/html&gt; <br>
+  </p>
+  <h3>ノードウォーキング</h3>
+  <p>
+    一般的な使い分け<br>
+    <b>getなんちゃら/queryなんちゃらで特定の要素を取得した後、近接するノードはノードウォーキングで取得する</b>
+  </p>
+  <h4>基本：child_nodes</h4>
+  <p>
+    ▼動作がわかるコード（コピーして.htmlで保存してブラウザで実行し、コンソールを確認してみて）<br>
+    &lt;!DOCTYPE html&gt; <br>
+    &lt;html&gt; <br>
+    &lt;head&gt; <br>
+    &lt;meta charset=&quot;UTF-8&quot; /&gt; <br>
+    &lt;title&gt;JavaScript本格入門&lt;/title&gt; <br>
+    &lt;/head&gt; <br>
+    &lt;body&gt; <br>
+    &lt;form&gt; <br>
+    &nbsp;&nbsp;&lt;label for=&quot;food&quot;&gt;一番好きな食べ物は？：&lt;/label&gt; <br>
+    &nbsp;&nbsp;&lt;select id=&quot;food&quot;&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=&quot;ラーメン&quot;&gt;ラーメン&lt;/option&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=&quot;餃子&quot;&gt;餃子&lt;/option&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=&quot;焼き肉&quot;&gt;焼き肉&lt;/option&gt; <br>
+    &nbsp;&nbsp;&lt;/select&gt; <br>
+     &lt;input type=&quot;submit&quot; value=&quot;送信&quot; /&gt; <br>
+    &lt;/form&gt; <br>
+    &lt;script&gt; <br>
+    var s = document.getElementById('food'); <br>
+    var opts = s.childNodes; <br>
+    for (var i = 0, len = opts.length; i &lt; len; i++) { <br>
+    &nbsp;&nbsp;var opt = opts.item(i); <br>
+    &nbsp;&nbsp;if (opt.nodeType === 1) { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(opt.value); <br>
+    &nbsp;&nbsp;} <br>
+    } <br>
+     <br>
+    &lt;/script&gt; <br>
+    &lt;/body&gt; <br>
+    &lt;/html&gt;<br><br>
+    firstElementChild（子を取得）とnextElementSibling（兄弟を取得）を使った方法はテキストを見て。
+  </p>
+
 
 </body>
 </html>
