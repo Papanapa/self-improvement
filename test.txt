@@ -1,4 +1,5 @@
 aaa
 AAA（先公開）
 bbb
+BBB（急遽発生した先公開）
 ccc
