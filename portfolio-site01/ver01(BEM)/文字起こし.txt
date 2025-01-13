@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="LP-PC">
+      <div class="div">
+        <div class="overlap">
+          <img class="mainvisual" src="img/mainvisual1-2.png" />
+          <div class="text">
+            <div class="BBB">話して学ぼう！<br />BBB英会話スクール</div>
+            <button class="btn">
+              <div class="overlap-group">
+                <img class="element" src="img/29.svg" />
+                <img class="img" src="img/11.svg" />
+                <img class="element-2" src="img/57.png" />
+                <div class="text-wrapper">無料体験はこちら</div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <img class="header" src="img/header.svg" />
+        <div class="reason">
+          <div class="section-title">
+            <div class="text-wrapper-2">BBBが選ばれる理由</div>
+            <img class="element-3" src="img/57.svg" />
+          </div>
+          <div class="overlap-2">
+            <div class="frame-wrapper">
+              <div class="frame">
+                <img class="icon-pc" src="img/icon-pc.png" />
+                <div class="text-wrapper-3">オンライン対応</div>
+                <div class="text-wrapper-4">24時間いつでも受講できる！</div>
+              </div>
+            </div>
+            <div class="div-wrapper">
+              <div class="frame-2">
+                <img class="icon-teacher" src="img/icon-teacher-1.png" />
+                <div class="text-wrapper-5">お気に入りの講師が自由に選べる！</div>
+                <div class="text-wrapper-6">講師はネイティブ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="voice">
+          <div class="section-title-2">
+            <div class="text-wrapper-2">受講生の声</div>
+            <img class="element-4" src="img/58.svg" />
+          </div>
+          <div class="item">
+            <img class="icon" src="img/icon-student1.svg" />
+            <div class="text-wrapper-7">○○○さん<br />大学生</div>
+            <img class="element-5" src="img/3.svg" />
+            <div class="overlap-group-2">
+              <div class="text-wrapper-8">
+                テキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                <br />テキストテキストテキストテキストテキストテキストテキストテキストテキスト
+              </div>
+            </div>
+          </div>
+          <div class="item-2">
+            <img class="icon-student" src="img/icon-student2.png" />
+            <div class="text-wrapper-9">○○○さん<br />会社員</div>
+            <div class="overlap-3">
+              <img class="element-6" src="img/4.svg" />
+              <img class="element-7" src="img/31.svg" />
+              <div class="text-wrapper-8">
+                テキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                <br />テキストテキストテキストテキストテキストテキストテキストテキストテキスト
+              </div>
+            </div>
+          </div>
+          <div class="item-3">
+            <img class="icon" src="img/icon-student3.svg" />
+            <div class="text-wrapper-10">○○○さん<br />自営業</div>
+            <img class="element-5" src="img/3-2.svg" />
+            <div class="overlap-4">
+              <div class="text-wrapper-8">
+                テキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                <br />テキストテキストテキストテキストテキストテキストテキストテキストテキスト
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="summary">
+          <div class="section-title-3">
+            <div class="text-wrapper-2">スクールの概要</div>
+            <img class="element-8" src="img/59.svg" />
+          </div>
+          <div class="LESSON">
+            <div class="text-wrapper-11">レッスン内容</div>
+            <div class="text-wrapper-12">LESSON</div>
+            <div class="text-wrapper-13">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </div>
+          <div class="PRICE">
+            <div class="text-wrapper-14">料金プラン</div>
+            <div class="text-wrapper-15">PRICE</div>
+            <div class="text-wrapper-13">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </div>
+          <div class="TEACHER">
+            <div class="text-wrapper-16">講師のご紹介</div>
+            <div class="text-wrapper-17">TEACHER</div>
+            <div class="text-wrapper-13">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </div>
+          <div class="q-a">
+            <div class="BBB-q-a">BBBのQ&amp;A</div>
+            <div class="q-a-2">Q&amp;A</div>
+            <div class="text-wrapper-13">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="text-wrapper-18">まずは無料で、BBBの英会話を試してみませんか？</div>
+          <div class="text-wrapper-19">今なら初月のレッスンを特別価格で受講できる割引クーポンをプレゼント！</div>
+          <button class="button"><div class="text-wrapper-20">無料体験に申し込む</div></button>
+        </div>
+        <footer class="footer">
+          <div class="footer-list">
+            <div class="text-wrapper-21">コース一覧</div>
+            <div class="text-wrapper-22">スタンダードプラン</div>
+            <div class="text-wrapper-23">プレミアムプラン</div>
+            <div class="text-wrapper-24">短期集中プラン</div>
+            <div class="text-wrapper-25">日常英会話コース</div>
+            <div class="text-wrapper-26">ビジネス英会話コース</div>
+          </div>
+          <div class="footer-list-2">
+            <div class="text-wrapper-21">講師紹介</div>
+            <div class="text-wrapper-23">講師一覧</div>
+            <div class="text-wrapper-24">講師を探す</div>
+            <div class="text-wrapper-22">講師について</div>
+          </div>
+          <div class="footer-list-3">
+            <div class="text-wrapper-21">会社情報</div>
+            <div class="text-wrapper-22">会社概要</div>
+            <div class="text-wrapper-23">採用情報</div>
+          </div>
+          <div class="footer-list-4">
+            <div class="text-wrapper-21">BBBについて</div>
+            <div class="text-wrapper-22">よくあるご質問</div>
+            <div class="text-wrapper-23">ご利用規約</div>
+            <div class="text-wrapper-24">プライバシーポリシー</div>
+            <div class="text-wrapper-25">お問い合わせ</div>
+          </div>
+          <div class="text-wrapper-27">© BBB English School</div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
