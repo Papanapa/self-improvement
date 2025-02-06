@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codejump ⑮ 中級編：ランディングページ／CSSアニメーション</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-    <header>
-        <img src="./assets/img/logo-r.svg" alt="BBB 英会話スクール">
+<body class="font--arial">
+    <header class="header">
+        <div class="header__logo header__logo--hamburger">
+            <img src="./assets/img/logo-r.svg" alt="BBB 英会話スクール">
+        </div>
     </header>
     <main>
+        <div class="hamburger">
+            <input type="checkbox" class="hamburger__secret-input" id="menu-btn">
+            <label for="menu-btn" class="hamburger__btn"><span class="hamburger__btn__nav-icon"></span></label>
+            <div class="hamburger__content">
+                <div class="header header--in-hamburger">
+                    <div class="header__logo header__logo--hamburger">
+                        <img src="./assets/img/logo-w.svg" alt="BBB 英会話スクール">
+                    </div>
+                </div>
+                <ul class="hamburger__list">
+                    <li><a href="">BBBが選ばれる理由</a></li>
+                    <li><a href="">受講生の声</a></li>
+                    <li><a href="">スクールの概要</a></li>
+                </ul>
+                <a href="" class="simple-btn">無料体験に申し込む</a>
+            </div>
+          </div>
         <section id="kv">
             <div>話して学ぼう！<br>BBB英会話スクール</a>
             <a href="">無料体験はこちら</a>
