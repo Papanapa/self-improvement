@@ -9,7 +9,10 @@
 <body class="font--arial">
     <header class="header">
         <div class="header__logo header__logo--hamburger">
-            <img src="./assets/img/logo-r.svg" alt="BBB 英会話スクール">
+            <picture>
+                <source srcset="./assets/img/logo-r.svg" media="(max-width: 900px)" width="100"/>
+                <img src="./assets/img/logo-r.svg" alt="BBB 英会話スクール"  width="100">
+            </picture>
         </div>
     </header>
     <main>
@@ -19,7 +22,10 @@
             <div class="hamburger__content">
                 <div class="header header--in-hamburger">
                     <div class="header__logo header__logo--hamburger">
-                        <img src="./assets/img/logo-w.svg" alt="BBB 英会話スクール">
+                        <picture>
+                            <source srcset="./assets/img/logo-w.svg" media="(max-width: 900px)" width="100"/>
+                            <img src="./assets/img/logo-w.svg" alt="BBB 英会話スクール"  width="100">
+                        </picture>
                     </div>
                 </div>
                 <ul class="hamburger__list">
@@ -30,9 +36,12 @@
                 <a href="" class="simple-btn">無料体験に申し込む</a>
             </div>
           </div>
-        <section id="kv">
-            <div>話して学ぼう！<br>BBB英会話スクール</a>
-            <a href="">無料体験はこちら</a>
+        <section id="kv" class="kv">
+            <div class="kv__message">
+                <div>話して学ぼう！<br>BBB英会話スクール</a>
+                <a href="">無料体験はこちら</a>
+            </div>
+            
         </section>
         <section id="reason">
             <h2 class="ttl ttl--underline">

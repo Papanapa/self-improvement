@@ -17,7 +17,15 @@
 	&__logo {
 		padding-top: 40px;
 		padding-left: 50px;
-		width: 100px;
+	}
+}
+@media screen and (max-width: 900px) {
+	.header {
+		&__logo {
+			padding-top: 25px;
+			padding-bottom: 25px;
+			padding-left: 25px;
+		}
 	}
 }
 
@@ -48,7 +56,7 @@
 		background: #fff;
 		display: block;
 		height: 2px;
-		width: 50px;
+		width: 50%;
 		position: relative;
 		transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
 
@@ -125,6 +133,27 @@
 		}
 	}
 }
+@media screen and (max-width: 900px) {
+	.hamburger {
+		&__btn {
+			height: 75px;
+			width: 75px;
+		}
+		&__btn__nav-icon {
+			&:before {
+				top: 10px;
+			}
+			&:after {
+				bottom: 10px;
+			}
+		}
+		&__content{
+			padding: 40px;
+			padding-top: 120px;
+		}
+	}
+}
+
 
 /* ---------------
 	btn
@@ -165,3 +194,8 @@ a.simple-btn {
 		height: 1px;
 	}
 }
+
+
+/* ---------------
+	kv
+--------------- */
