@@ -1,4 +1,14 @@
+/* ---------------
+	variable
+--------------- */
+/*color*/
 $BBB-red: #FF2A2A;
+/*z-index*/
+$Z_standard-content: 0;
+$Z_under-header_above-content: 5;
+$Z_header: 10;
+$Z_above-header: 15;
+$Z_above-all: 100;
 
 /* ---------------
 	reset
@@ -28,3 +38,4 @@ img {
 .font--yugo-arial {
   font-family: "Yu Gothic", "YuGothic", Arial, sans-serif;
 }
+

@@ -1,4 +1,9 @@
 /* ---------------
+	variable
+--------------- */
+/*color*/
+/*z-index*/
+/* ---------------
 	reset
 --------------- */
 * {
@@ -59,6 +64,7 @@ img {
 	hamburger
 --------------- */
 .hamburger {
+  z-index: 15;
   position: fixed;
   top: 0;
   right: 0;
@@ -68,7 +74,7 @@ img {
 }
 .hamburger__btn {
   position: relative;
-  z-index: 2;
+  z-index: 100;
   height: 100px;
   width: 100px;
   display: flex;
@@ -165,6 +171,32 @@ img {
   }
 }
 /* ---------------
+	ttl
+--------------- */
+.h2-ttl {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.h2-ttl--underline {
+  position: relative;
+  text-align: center;
+}
+.h2-ttl--underline::after {
+  content: "";
+  width: 100px;
+  height: 3px;
+  display: block;
+  background-color: #333;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------------
 	btn
 --------------- */
 /* simple-btn */
@@ -204,4 +236,62 @@ a.simple-btn::after {
 
 /* ---------------
 	kv
---------------- *//*# sourceMappingURL=style.css.map */
+--------------- */
+@keyframes slide-fade {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 0;
+  }
+}
+.kv {
+  position: relative;
+}
+.kv__message {
+  position: relative;
+  z-index: 5;
+  padding: 280px 0 280px 140px;
+  font-size: 46px;
+  line-height: 1.6;
+  font-weight: 700;
+  filter: drop-shadow(0px 4px 6px #FFFFFF);
+}
+.kv__bg {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+.kv__bg__inner {
+  position: absolute;
+  opacity: 0;
+  background-image: url(../img/mainvisual1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0px 0px 20px 20px #fff;
+  width: 100%;
+  height: 100%;
+}
+.kv__bg__inner--01 {
+  background-image: url(../img/mainvisual1.jpg);
+  animation: slide-fade infinite 12s;
+}
+.kv__bg__inner--02 {
+  background-image: url(../img/mainvisual2.jpg);
+  animation: slide-fade infinite 12s;
+  animation-delay: 4s;
+}
+.kv__bg__inner--03 {
+  background-image: url(../img/mainvisual3.jpg);
+  animation: slide-fade infinite 12s;
+  animation-delay: 8s;
+}/*# sourceMappingURL=style.css.map */
