@@ -294,4 +294,16 @@ a.simple-btn::after {
   background-image: url(../img/mainvisual3.jpg);
   animation: slide-fade infinite 12s;
   animation-delay: 8s;
+}
+
+@media screen and (max-width: 900px) {
+  .kv__message {
+    padding: 10px 16px;
+    font-size: 28px;
+  }
+  .kv__bg {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
 }/*# sourceMappingURL=style.css.map */
