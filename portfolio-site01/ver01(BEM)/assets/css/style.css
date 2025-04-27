@@ -131,6 +131,42 @@ img {
 .hamburger__list li:not(:last-of-type) {
   margin-bottom: 20px;
 }
+.hamburger__btn-in {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #fff;
+  padding: 15px 45px;
+  margin: 40px 10px;
+  color: #fff;
+  font-weight: 700;
+}
+.hamburger__btn-in:visited {
+  color: #fff;
+}
+.hamburger__btn-in:hover {
+  background-color: #fff;
+  color: #FF2A2A;
+  opacity: 1;
+  transition: 300ms;
+}
+.hamburger__btn-in::before, .hamburger__btn-in::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: #fff;
+}
+.hamburger__btn-in::before {
+  top: 7px;
+  left: calc(100% + 7px);
+  width: 1px;
+  height: 100%;
+}
+.hamburger__btn-in::after {
+  bottom: -7px;
+  left: 7px;
+  width: 100%;
+  height: 1px;
+}
 
 .hamburger:has(.hamburger__secret-input:checked) .hamburger__btn:not(.steps) .hamburger__btn__nav-icon:before {
   top: 0;
@@ -199,41 +235,6 @@ img {
 /* ---------------
 	btn
 --------------- */
-/* simple-btn */
-a.simple-btn {
-  position: relative;
-  display: inline-block;
-  border: 1px solid #fff;
-  padding: 15px 45px;
-  margin: 40px 10px;
-  color: #fff;
-  font-weight: 700;
-}
-a.simple-btn:hover {
-  background-color: #fff;
-  color: #FF2A2A;
-  opacity: 1;
-  transition: 300ms;
-}
-a.simple-btn::before, a.simple-btn::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background: #fff;
-}
-a.simple-btn::before {
-  top: 7px;
-  left: calc(100% + 7px);
-  width: 1px;
-  height: 100%;
-}
-a.simple-btn::after {
-  bottom: -7px;
-  left: 7px;
-  width: 100%;
-  height: 1px;
-}
-
 /* ---------------
 	kv
 --------------- */
@@ -258,6 +259,8 @@ a.simple-btn::after {
   position: relative;
   z-index: 5;
   padding: 280px 0 280px 140px;
+}
+.kv__message__txt {
   font-size: 46px;
   line-height: 1.6;
   font-weight: 700;
@@ -295,10 +298,39 @@ a.simple-btn::after {
   animation: slide-fade infinite 12s;
   animation-delay: 8s;
 }
+.kv__btn, .kv__btn:visited {
+  width: 450px;
+  position: relative;
+  display: inline-block;
+  background: #FF0033;
+  box-shadow: 0 5px 0 #7A051C;
+  margin-top: 30px;
+  padding: 15px 50px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+.kv__btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../img/arrow.svg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  top: 0;
+  right: 18px;
+  width: 1em;
+  height: 100%;
+}
 
 @media screen and (max-width: 900px) {
   .kv__message {
     padding: 10px 16px;
+  }
+  .kv__message__txt {
     font-size: 28px;
   }
   .kv__bg {
